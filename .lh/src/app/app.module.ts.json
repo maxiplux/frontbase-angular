@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/app/app.module.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1675307218229,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1675307227109,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,17 +6,19 @@\n import { DashboardComponent } from './ui/dashboard/dashboard.component';\n import { HeaderComponent } from './ui/header/header.component';\n import { ContentComponent } from './ui/content/content.component';\n import { FooterComponent } from './ui/footer/footer.component';\n-import { SideBarComponent } from './ui/side-bar/side-bar.component';\n+import { SidedBarComponent } from './ui/sided-bar/sided-bar.component';\n \n+\n @NgModule({\n   declarations: [\n     AppComponent,\n     DashboardComponent,\n     HeaderComponent,\n     ContentComponent,\n     FooterComponent,\n+    SidedBarComponent,\n \n   ],\n   imports: [\n     BrowserModule,\n"
+                },
+                {
+                    "date": 1675307256491,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,8 @@\n import { DashboardComponent } from './ui/dashboard/dashboard.component';\n import { HeaderComponent } from './ui/header/header.component';\n import { ContentComponent } from './ui/content/content.component';\n import { FooterComponent } from './ui/footer/footer.component';\n-import { SidedBarComponent } from './ui/sided-bar/sided-bar.component';\n \n \n @NgModule({\n   declarations: [\n"
+                },
+                {
+                    "date": 1675307261951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,10 +15,10 @@\n     DashboardComponent,\n     HeaderComponent,\n     ContentComponent,\n     FooterComponent,\n-    SidedBarComponent,\n \n+\n   ],\n   imports: [\n     BrowserModule,\n     AppRoutingModule\n"
+                }
+            ],
+            "date": 1675307218229,
+            "name": "Commit-0",
+            "content": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\nimport { DashboardComponent } from './ui/dashboard/dashboard.component';\nimport { HeaderComponent } from './ui/header/header.component';\nimport { ContentComponent } from './ui/content/content.component';\nimport { FooterComponent } from './ui/footer/footer.component';\nimport { SideBarComponent } from './ui/side-bar/side-bar.component';\n\n@NgModule({\n  declarations: [\n    AppComponent,\n    DashboardComponent,\n    HeaderComponent,\n    ContentComponent,\n    FooterComponent,\n\n  ],\n  imports: [\n    BrowserModule,\n    AppRoutingModule\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n"
+        }
+    ]
+}
