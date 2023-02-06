@@ -21,6 +21,10 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import {TokenInterceptor} from "./auth/interceptors/token.interceptor";
 import {AuthInterceptor} from "./auth/interceptors/auth.interceptor";
 import {ProductService} from "./services/product.services";
+import { PaginationComponent } from './ui/pagination/pagination.component';
+import { ErrorsComponent } from './ui/errors/errors.component';
+import {ProducteditorComponent} from "./components/products/producteditor/producteditor.component";
+
 
 
 @NgModule({
@@ -34,6 +38,10 @@ import {ProductService} from "./services/product.services";
     ProductsComponent,
     CategoriesComponent,
     LoginComponent,
+    ProducteditorComponent,
+    PaginationComponent,
+    ErrorsComponent,
+
 
 
   ],
@@ -46,7 +54,9 @@ import {ProductService} from "./services/product.services";
     RouterModule.forRoot(appRoutes), FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthGuard,ProductService,{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
+  providers: [AuthGuard,ProductService,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

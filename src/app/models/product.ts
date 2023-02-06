@@ -1,26 +1,43 @@
-export interface Products {
-  _embedded: Embedded
-  _links: Links2
-  page: Page
+import {Industry, Sector} from "./generics";
+
+export interface Page {
+  size: number
+  totalElements: number
+  totalPages: number
+
+
+  number: number
+
+  first: boolean
+  numberOfElements: number
+  empty: boolean
+  last: boolean
+
+}
+export interface Products extends Page {
+  content: Product[]
+
+  pageable: pageable
+
 }
 
-export interface Embedded {
-  products: Product[]
-}
+
+
+
 
 export interface Product {
   id: number
   name: string
-  industry: string
-  sector: string
+  industry: Industry
+  sector: Sector
   website: string
   rank: string
-  _links: Links
+
 }
 
 export interface Links {
   self: Self
-  product: Product2
+  product: Self
 }
 
 export interface Self {
@@ -64,9 +81,34 @@ export interface Profile {
   href: string
 }
 
-export interface Page {
-  size: number
-  totalElements: number
-  totalPages: number
-  number: number
+export interface  Sort {
+  empty:boolean
+  sorted:boolean
+
+  unsorted:boolean
+
+  unpaged:boolean
+
+}
+
+export interface pageable
+{
+  offset: number
+
+
+  pageNumber: number
+
+
+  pageSize: number
+
+
+  paged: boolean
+
+
+  sort:Sort
+
+
+  unpaged: boolean
+
+
 }

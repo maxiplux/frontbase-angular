@@ -7,16 +7,24 @@ import { Observable } from 'rxjs';
 import {AuthService} from "../AuthService";
 
 
+
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {
+
+  }
+
 
   intercept(req: HttpRequest<any>, next: HttpHandler):
+
     Observable<HttpEvent<any>> {
 
 
-    if (req.url.indexOf('oauth/token') > -1) {
+
+        if (!req.url.includes('oauth/token'))
+    {
+
       let token = this.authService.token;
 
       if (token != '')

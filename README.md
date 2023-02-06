@@ -25,3 +25,9 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Deployment to Railway.
+If you are trying to deploy to ralway, you need to make sure to change in your Railway Dashboard the port.
+Setup NGINX_PORT and PORT to 80. This will be enough to make it work.
+
+
