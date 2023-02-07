@@ -19,15 +19,6 @@ export interface SectorCollection {
   sectors: Sector[]
 }
 
-
-
-
-
-
-
-
-
-
 export interface Page {
   size: number
   totalElements: number

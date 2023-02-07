@@ -48,14 +48,19 @@ export class ProductService {
 
 
   create(cliente: Product): Observable<Product> {
-    return this.http.post(this.productsEndPoint, cliente)
+    //debugger;
+    return this.http.post(this.productsEndPoint+"/", cliente)
       .pipe(
         map((response: any) => response.cliente as Product),
         catchError(e =>
         {
+          //debugger;
           Swal.fire(    'Error Create Product!',        `Failed ${e.error.mensaje}!`, 'error');
           if (e.status == 400) {
             return throwError(e);
+          }
+          if (e.status == 500) {
+            Swal.fire(    'Error Create Product!',        `Failed ${e.error.mensaje}!`, 'error');
           }
           if (e.error.mensaje) {
             console.error(e.error.mensaje);
@@ -67,8 +72,10 @@ export class ProductService {
 
 
   update(product: Product): Observable<any> {
+    //debugger;
     return this.http.put<any>(`${this.productsEndPoint}/${product.id}/`, product).pipe(
       catchError(e => {
+
         if (e.status == 400)
         {
           return throwError(e);

@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    debugger;
+
       if (this.authService.isAuthenticated())
       {
 

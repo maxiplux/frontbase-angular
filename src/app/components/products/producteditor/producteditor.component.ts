@@ -45,7 +45,8 @@ export class ProducteditorComponent  implements OnInit {
       // @ts-ignore
 
       const id:number = +params.get('id') || 0;
-
+      this.productServices.getIndustries().subscribe((industries) => {  this.induestries = industries._embedded.industries;});
+      this.productServices.getSectors().subscribe(  (sectors) => {  this.sectors = sectors._embedded.sectors;});
 
       if (id)
       {
@@ -53,8 +54,7 @@ export class ProducteditorComponent  implements OnInit {
           this.product = product
 
 
-          this.productServices.getIndustries().subscribe((industries) => {  this.induestries = industries._embedded.industries;});
-          this.productServices.getSectors().subscribe(  (sectors) => {  this.sectors = sectors._embedded.sectors;});
+
 
 
 
@@ -77,15 +77,17 @@ export class ProducteditorComponent  implements OnInit {
   submit() {
 
     this.product = this.form.value as Product;
-
+  //debugger;
     if (this.product.id)
     {
       this.productServices.update(this.product).subscribe((product) => {
         Swal.fire('Success', 'Product Updated', 'success');
         this.router.navigate(['dashboard/products']);
       });
-    }else{
-      this.productServices.saveProduct(this.form.value).subscribe((product) => {
+    }
+    else{
+
+      this.productServices.saveProduct(this.product).subscribe((product) => {
         this.product=product;
         Swal.fire(    'Product!',        `The ${this.product.name}, has been update sucessfully!`, 'success');
       });
